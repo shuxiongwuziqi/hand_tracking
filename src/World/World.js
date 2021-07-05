@@ -39,7 +39,7 @@ class World {
     const resizer = new Resizer(container, camera, renderer);
 
     // add the helpers to the scene
-    // scene.add(createAxesHelper(), createGridHelper());
+    scene.add(createAxesHelper(), createGridHelper());
   }
 
   render() {
@@ -54,8 +54,9 @@ class World {
     loop.stop();
   }
 
-  drawHand(prediction){
-    hand_controller.drawHand(prediction);
+  drawHand(predictions){
+    if (!predictions || predictions.length == 0 ) return;
+    hand_controller.drawHand(predictions[0]);
   }
 }
 

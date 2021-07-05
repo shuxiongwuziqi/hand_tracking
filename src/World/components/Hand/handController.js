@@ -5,8 +5,8 @@ class handController {
         this.controls = controls;
     }
 
-    drawHand(predictions) {
-        const { annotations: { indexFinger, middleFinger, palmBase, pinky, ringFinger, thumb } } = predictions[0];
+    drawHand(prediction) {
+        const { annotations: { indexFinger, middleFinger, palmBase, pinky, ringFinger, thumb } } = prediction;
         for (let i = 0; i < 4; i++) {
             this.hand.indexFinger[i].position.set(...this._transform(indexFinger[i]));
             this.hand.middleFinger[i].position.set(...this._transform(middleFinger[i]));

@@ -31,3 +31,15 @@
     */
     background-color: skyblue;
 }
+
+#startEstimate {
+    position: relative;
+    left: -11px;
+    top: 20px;
+}
+
+#stopEstimate {
+    position: relative;
+    left: 10px;
+    top: 20px;
+}
