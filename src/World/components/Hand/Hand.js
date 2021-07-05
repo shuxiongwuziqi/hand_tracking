@@ -1,42 +1,38 @@
-import { Group, MathUtils } from 'three';
-import createMeshes from './meshes.js';
+import { Group, MathUtils, LineBasicMaterial, Vector3, BufferGeometry, Line, BufferAttribute} from 'three';
+import {createHandKeypoint, createHandLine} from './meshes';
 // To do...
-class Hand extends Group {
+export class Hand extends Group {
     constructor() {
         super();
-        this.meshes = createMeshes();
+        const keypoints = createHandKeypoint();
         
         // indexFinger 4, middleFinger 4 , palmBase 1 , pinky 4 , ringFinger 4, thumb 4
-        this.palmBase = [this.meshes.palmBase];
+        this.palmBase = [keypoints.palmBase];
         
-        this.indexFinger = [this.meshes.indexFinger];
-        this.middleFinger = [this.meshes.middleFinger];
-        this.pinky = [this.meshes.pinky];
-        this.ringFinger = [this.meshes.ringFinger];
-        this.thumb = [this.meshes.thumb];
+        this.indexFinger = [keypoints.indexFinger];
+        this.middleFinger = [keypoints.middleFinger];
+        this.pinky = [keypoints.pinky];
+        this.ringFinger = [keypoints.ringFinger];
+        this.thumb = [keypoints.thumb];
         for(let i =0;i<3;++i){
-            this.indexFinger.push(this.meshes.indexFinger.clone());
-            this.middleFinger.push(this.meshes.middleFinger.clone());
-            this.pinky.push(this.meshes.pinky.clone());
-            this.ringFinger.push(this.meshes.ringFinger.clone());
-            this.thumb.push(this.meshes.thumb.clone());
+            this.indexFinger.push(keypoints.indexFinger.clone());
+            this.middleFinger.push(keypoints.middleFinger.clone());
+            this.pinky.push(keypoints.pinky.clone());
+            this.ringFinger.push(keypoints.ringFinger.clone());
+            this.thumb.push(keypoints.thumb.clone());
         }
-        
-        this.add(
-            this.palmBase[0],
-        )
-        for (let i=0;i<4;++i){
-            this.add(this.indexFinger[i]);
-            this.add(this.middleFinger[i]);
-            this.add(this.pinky[i]);
-            this.add(this.ringFinger[i]);
-            this.add(this.thumb[i]);
-        }
+        this.palmBase.forEach(each=>this.add(each));
+        this.indexFinger.forEach(each=>this.add(each));
+        this.middleFinger.forEach(each=>this.add(each));
+        this.pinky.forEach(each=>this.add(each));
+        this.ringFinger.forEach(each=>this.add(each));
+        this.thumb.forEach(each=>this.add(each));
+
+        this.lines = createHandLine();
+        for(const key in this.lines)this.add(this.lines[key]);
     }
 
     tick(delta) {
         
     }
 }
-
-export default Hand;

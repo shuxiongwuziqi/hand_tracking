@@ -1,5 +1,5 @@
 
-export function drawHand(videoEl, ctx) {
+    export function drawHand(videoEl, ctx) {
     return (predictions)=>{
         ctx.drawImage(videoEl, 0, 0);
         if (!predictions || predictions.length == 0 ) return;

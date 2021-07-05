@@ -5,8 +5,8 @@ import {
 } from './components/helpers.js';
 import { createLights } from './components/lights.js';
 import { createScene } from './components/scene.js';
-import Hand from './components/Hand/Hand.js';
-import handController from './components/Hand/handController.js'
+import {Hand} from './components/Hand/Hand.js';
+import {HandController} from './components/Hand/HandController.js'
 
 import { createControls } from './systems/controls.js';
 import { createRenderer } from './systems/renderer.js';
@@ -31,7 +31,7 @@ class World {
     const { ambientLight, mainLight } = createLights();
     // const train = new Train();
     const hand = new Hand();
-    hand_controller =  new handController(hand, controls);
+    hand_controller =  new HandController(hand, controls);
 
     // loop.updatables.push(controls, train);
     scene.add(ambientLight, mainLight, hand);
