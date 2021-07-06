@@ -1,8 +1,8 @@
 
-    export function drawHand(videoEl, ctx) {
-    return (predictions)=>{
+export function drawHand(videoEl, ctx) {
+    return (predictions) => {
         ctx.drawImage(videoEl, 0, 0);
-        if (!predictions || predictions.length == 0 ) return;
+        if (!predictions || predictions.length == 0) return;
         // console.log("draw hand");
         const prediction = predictions[0];
         // console.log(prediction);

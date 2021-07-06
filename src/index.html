@@ -12,6 +12,7 @@
     <div id="scene-container">
         <!-- Our <canvas> will be inserted here -->
     </div>
+    <div id="result">方向</div>
     <div id="container">
         <video autoplay="true" id="videoElement">
 
@@ -19,8 +20,13 @@
         <canvas id="draw_hand" width="640px" height="480px">
 
         </canvas>
-        <button id="startEstimate">startEstimate</button>
-        <button id="stopEstimate">stopEstimate</button>
+        <div id="control_panel">
+            <button id="startEstimate">识别手部</button>
+            <button id="startEstimatePose">手部动作识别</button>
+            <button id="stopEstimate">停止</button>
+            <input type="file" id="files"/>
+        </div>
+
     </div>
 </body>
 

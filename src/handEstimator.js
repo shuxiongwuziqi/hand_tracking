@@ -1,5 +1,4 @@
 import * as handpose from '@tensorflow-models/handpose';
-import '@tensorflow/tfjs-backend-webgl';
 
 export class HandEstimator{
     constructor(videoEl){
